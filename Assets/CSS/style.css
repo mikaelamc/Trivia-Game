@@ -1,0 +1,74 @@
+body {
+    background: url("../Images/field-stripes.jpg");
+}
+
+
+.Questions {
+    width: 40%;
+    top: 30%;
+    margin: 0 auto;
+    padding: 10px 10px 10px 10px;
+    text-align: center;
+    background: #ff9300e0;
+
+   
+}
+
+
+ .MaintContent {
+     width: 600px;
+     height: 500px;
+     margin: 0 auto;
+     padding: 10px 50px 50px 50px;
+     border-radius: 50px;
+     border: 2px solid;
+     box-shadow: 10px 5px 5px;
+ }
+
+ h1 {
+     font-size: 60px;
+     text-align: center;
+     padding: 2px 0px;
+     border-radius: 50px;
+ }
+
+ #Play {
+
+background-color: #778897;
+  font-size: 25px;
+  color: #ffffff;
+  border: 1px solid #4e545a;
+  border-radius: 50px;
+  margin: 10px 40px 10px 0px;
+  padding: 10px 10px;
+ }
+
+ .buttons {
+     margin-top: 30px;
+ }
+
+ #btn0, #btn1, #btn2, #btn3 {
+     background-color: #778897;
+     width: 250px;
+     font-size: 12px;
+     color: #ffffff;
+     border: 1px solid #4e545a;
+     border-radius: 50px;
+     margin: 10px 40px 10px 0px;
+     padding: 10px 10px;
+     
+     
+ }
+
+ #Trivia Questions {
+     color: #2b2b2b;
+     font-size: 18px;
+ } 
+
+ #btn0, #btn1, #btn2, #btn3 {
+     cursor:pointer;
+     background-color: #57636e;
+ } 
+
+
+
