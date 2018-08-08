@@ -5,7 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Trivia Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Reset CSS -->
+    <link rel="stylesheet" type="text/css" media="screen" href="Assets/CSS/reset.css" />
+    <!-- Style CSS -->
     <link rel="stylesheet" type="text/css" media="screen" href="Assets/CSS/style.css" />
+   
     <!-- JQuery -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
@@ -14,84 +18,29 @@
     
 
    <div class="MainContent">
-       <div id="Triva Game">
-            <h1>Trivia Game</h1>
-            <hr style="margin-top: 20px">
-            <!-- Timer -->
-        <div id="Time-Left"></div>
+        <div id="wrapper">
+            <div id="Triva Game">
+                <h1>TRIVIA GAME</h1>
+                <hr style="margin-top: 20px">
 
-        <div class ="Questions">
+            <div id="subwrapper">
+                <div style="text-align:center;">
+                    <button id="start">START!</button>
+                </div>
+            </div>
+        </div>
+
         
-        <div class="buttons">
-
-            <p id="Play"><strong>Let's Play!</strong></p>
-
-                <br>
-                <br>
-
-            <p id="Q1">Who has more MVP's during the Finals amongst the following?</p> 
-
-            <button id="btn0"><span id="Lebron James" data-correct="correct">Lebron James</span></button>
-            <button id="btn1"><span id="Kobe Bryant">Kobe Bryant</span></button>
-            <button id="btn2"><span id="Stephen Curry">Stephen Curry</span></button>
-            <button id="btn3"><span id="Kyrie Irving"></span>Kyrie Irving</button>
-            
         </div>
 
-        <div class="buttons">
-
-            <p id="Q2">What Fortune 500 Company just purchased Yahoo?</p>
-
-            <button id="btn0"><span id="ATT"></span>ATT</button>
-            <button id="btn1"><span id="Whole Foods">Whole Foods</span></button>
-            <button id="btn2"><span id="SAMs"></span>SAMS</button>
-            <button id="btn3"><span id="Verizon" data-correct="correct"></span>Verizon</button>
-                
-        </div>
-
-        <div class="buttons">
-
-            <p id="Q3">What brand does James Harden sponsor?</p>
-
-            <button id="btn0"><span id="Nike">Nike</span></button>
-            <button id="btn1"><span id="Adidas" data-correct="correct">Adidas</span></button>
-            <button id="btn2"><span id="Fruit of the Loom">Fruit of the Loom</span></button>
-            <button id="btn3"><span id="Calvin Klein">Calvin Klein</span></button>
-                    
-        </div>
-
-        <div class="buttons">
-
-            <p id="Q4">What professional wrestler played college football at the University of Miami?</p>
-
-            <button id="btn0"><span id="Stone Cold Austin">Stone Cold Austin</span></button>
-            <button id="btn1"><span id="Ric Flair">Ric Flair</span></button>
-            <button id="btn2"><span id="The Rock" data-correct="correct">The Rock</span></button>
-            <button id="btn3"><span id="Hulk Hogan">Hulk Hogan</span></button>
-                        
-        </div>
-
-        <div class="buttons">
-        
-            <p id="Q5">Who was the 44th president of the United States of America?</p> 
-
-            <button id="btn0"><span id="Barack Obama" data-correct="correct">Barack Obama</span></button>
-            <button id="btn1"><span id="Bill Clinton">Bill Clinton</span></button>
-            <button id="btn2"><span id="George Washington">George Washington</span></button>
-            <button id="btn3"><span id="Kanye West">Kanye West</span></button>
-                
-        </div>
-
-        </div>
-
-        <hr style="margin-top: 50px">
+        <!-- <hr style="margin-top: 50px"> -->
 
     </div>
 
         <!-- Footer -->
     <footer>
         <p id="Trivia Questions"></p>
-    </footer>
+    </footer> 
       
   
         <!-- Javascript Link -->

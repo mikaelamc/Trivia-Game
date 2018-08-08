@@ -1,139 +1,136 @@
 
+$('#start').on('click', function(){
+    $('#start').remove();
+    game.loadQuestion();
+})
 
-//Create an array of potential answers for each question.
-
-var UserChoices="0";
-var UserLosses="0";
-
-
-var questions = [
-      "Q1", // Who has more MVP's during the Finals amongst the following?
-      "Q2", // What Fortune 500 Company just purchased Yahoo?
-      "Q3", // What brand does James Harden sponsor?
-      "Q4", // What professional wrestler played college football at the University of Miami?
-      "Q5" //  Who was the 44th president of the United States of America?<
-];
-
-var buttons = ["btn0", "btn1", "btn2", "btn3", "btn4", "btn5", "btn6", "btn7", "btn8"];
-
-
-
-$(".buttons button").on("click", function(){
-console.log("a string of clicked");
-var answer = $(this).children().text();
-console.log({answer});
-
-if ($(this).children().attr("data-correct") === "correct"){
-    console.log("correct");
-}
- 
+$(document).on('click','.answer-button', function(e){
+    game.clicked(e);
 })
 
 
+var questions = [{
+    question: "Who has more MVP's during the Finals amongst the following?",
+    answers: ["Lebron James","Kobe Bryant", "Steph Curry", "Kyrie Irving"],
+    correctAnswer: "Lebron James",
+    image: "Assets/Images/Lebron.jpeg"
+}, {
+    question: "What Fortune 500 Company just purchased Yahoo?",
+    answers: ["AT&T", "Whole Foods", "SAMS", "Verizon"],
+    correctAnswer: "Verizon",
+    // image: "Assets/Images/Lebron.jpeg"
+}, {
+    question: "What brand does James Harden sponsor?",
+    answers: ["Nike", "Adidas", "Fruit of the Loom", "Calvin Klein"],
+    correctAnswer: "Adidas"
+}, {
+    question: "What professional wrestler played college football at the University of Miami?",
+    answers: ["Stone Cold Austin", "Ric Flair", "The Rock", "Hulk Hogan"],
+    correctAnswer: "The Rock"
+}, {
+    question: "Who was the 44th president of the United States of America?",
+    answers: ["Barack Obama", "Bill Clinton", "George Washington", "Kanye West"],
+    correctAnswer: "Barack Obama"
+}];
 
 
-// "Q1" = function() {
-//  if(Q1 === "#btn0"){
-//      console.log("correct answer")
-//      alert("correct answer");
-//  }
-// }
+//Timer
 
+var game = {
+    image: image,
+    questions: questions,
+    currentQuestion: 0,
+    correct: 0,
+    incorrect: 0,
+    unanswered: 0,
+    counter: 30,
+    countdown: function(){
+        game.counter--;
+        $('#counter').html(game.counter);
+      if(game.counter<= 0){
+        console.log("Time's Up");
+        game.timeUp();
+      }
+    },
+    loadQuestion: function(){
+        timer = setInterval(game.countdown, 1000);
+        $('#subwrapper').html("<h2>Time Remaining: <span id='counter'>30<span> Seconds</h2>");
+        $('#subwrapper').append('<h2>' +questions[game.currentQuestion].question +'</h2>');
+        for(var i=0; i<questions[game.currentQuestion].answers.length; i++){
+            $('#subwrapper').append('<button class="answer-button" id="button- '+i+' "data-name=" '+questions[game.currentQuestion].answers[i]+'">'+questions[game.currentQuestion].answers[i]+'</button>');
+        }
+    },
+    nextQuestion: function(){
+        game.counter = 30;
+        $('#counter').html(game.counter);
+        game.currentQuestion++;
+        game.loadQuestion();
+    },
+    timeUp: function(){
+      clearInterval(timer);
+      $('#subwrapper').html('<h2>Out of Time!</h2>');
+      $('#subwrapper').append('<h3>The Correct Answer Was: '+questions[game.currentQuestion].correctAnswer+'</h3>');
+      if(game.currentQuestion==questions.length-1){
+          setTimeout(game.results, 3*1000);
+      }else{
+          setTimeout(game.nextQuestion, 3*1000);
+      }
+    },
 
-
-
-
-
-// Timer
-// / Create a Timer // Set the Timer to start when the page loads // Set the Timer to Count down
-
-// setTimeout(thirtySeconds, 1000 *5);
-
-
-// function thirtySeconds() {
-
-//       $("#time-left").append("<h2>Time-Left </h2>");
-//       console.log("Time Left");
-// }
-
-// function timeUp() {
-//     $("#time-left").append(<h2>"Time-Left "</h2>);
-// }
-
-
-
-// Create onlcick event that capture's the user's choice
-
-// (.buttonsClicked === function {
-
-// $(".buttons").on("click", ".buttons", function() {
-
-// });
-
-
-
-// if the wrong answer is selected, the total score decreases.
-// Prevent user from selecting multiple answers per questions.
-// Display the user's total score when the time runs out. 
-
-
-
-// var answerOptions = [
-//     "lebronJames",
-//     "kobeBryant",
-//     "stephenCurry",
-//     "kyrieIrving",
-//     "AT&T",
-//     "SAMS",
-//     "wholeFoods",
-//     "Verizon",
-//     "Nike",
-//     "Addidas",
-//     "fruitOftheLoom",
-//     "calvinKlein",
-//     "stoneColdaustin",
-//     "ricFlair",
-//     "theRock",
-//     "hulkHogan",
-//     "barackObama",
-//     "billClinton",
-//     "georgeWashington",
-//     "kanyeWest"
-// ];
-
-
-
-
-
-
-
-// $(document).ready(function() {
-
-//     document.getElementById("buttons")
-
-//if the correct answer is selected, the total score increases.
-
-// $("body").on("click", "#btn0", function(){
-
-//     alert("correct");
-
-
-// });
-
-// $("body").on("click", "!#btn0", function(){
+    results: function(){
+        clearInterval(timer);
+        $('#subwrapper').html("<h2> All done!</h2>");
+        $('#subwrapper').append("Correct: " + game.correct + "</h3>");
+        $('#subwrapper').append("</h3>Incorrect: " + game.incorrect + "</h3>");
+        $('#subwrapper').append("<h3>Unanswered Questions: " + game.unanswered + "</h3>");
+    },
     
-//     alert("wrong");
+    clicked: function(e){
+        clearInterval(timer);
+        console.log("target", e.target); 
+        console.log("right side", questions);
+        console.log("left side", $(e.target).data("name"))
+        if($(e.target).data("name").trim()==questions[game.currentQuestion].correctAnswer){
+            game.answeredCorrectly();
+        }else{
+            game.answeredIncorrectly();
+        }
+     },
+    answeredCorrectly: function(){
+        console.log("You Got It!");
+        clearInterval(timer);
+        game.correct++;
+        $('#subwrapper').html('<h2>You got it right!</h2>');
+        $('#subwrapper').append(questions.image);
+        console.log(questions.image)
+        if(game.currentQuestion==questions.length-1){
+            setTimeout(game.results, 3*1000);
+        } else {
+            setTimeout(game.nextQuestion,3*1000);
+        }
 
-// });
+     },
+  
+     answeredIncorrectly: function() {
+         console.log("You Got it Wrong");
+        clearInterval(timer);
+        game.Incorrect++;
+        $('#subwrapper').html('<h2>You got it wrong!</h2>');
+        if(game.currentQuestion==questions.length-1){
+            setTimeout(game.results, 3*1000);
+        } else {
+            setTimeout(game.nextQuestion,3*1000);
+        }
+   },
+    reset: function(){
+        game.currentQuestion = 0;
+        game.counter = 0;
+        game.correct =0;
+        game.incorrect=0;
+        game.unaswered=0;
+        game.loadQuestion();
+    }
 
+   }
 
-// $("body").on("click", "#btn4", function(){
-
-//     alert("correct");
-
-
-// });
-
-
-// });
 
