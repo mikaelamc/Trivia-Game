@@ -13,12 +13,10 @@ var questions = [{
     question: "Who has more MVP's during the Finals amongst the following?",
     answers: ["Lebron James","Kobe Bryant", "Steph Curry", "Kyrie Irving"],
     correctAnswer: "Lebron James",
-    image: "Assets/Images/Lebron.jpeg"
 }, {
     question: "What Fortune 500 Company just purchased Yahoo?",
     answers: ["AT&T", "Whole Foods", "SAMS", "Verizon"],
     correctAnswer: "Verizon",
-    // image: "Assets/Images/Lebron.jpeg"
 }, {
     question: "What brand does James Harden sponsor?",
     answers: ["Nike", "Adidas", "Fruit of the Loom", "Calvin Klein"],
@@ -37,7 +35,6 @@ var questions = [{
 //Timer
 
 var game = {
-    image: image,
     questions: questions,
     currentQuestion: 0,
     correct: 0,
