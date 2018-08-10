@@ -1,11 +1,13 @@
-body {
-    background: url("../Images/Quizzes1.jpg");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    opacity: 10;
-    background-size: cover;
-    padding: 200px;
-} 
+
+
+    body {
+        background: url("../Images/Quizzes1.jpg");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        opacity: 10;
+        background-size: cover;
+        padding: 200px;
+    } 
 
 h1 {
     color:green;
@@ -120,3 +122,48 @@ background-color: #778897;
  } 
 
 
+h3 {
+    padding: 15px;
+    font-size: 18px;
+}
+/* 
+
+@media only screen and (min-width:300px) {
+        .MainContent {
+           margin-left: -146px;
+           margin-right: 100px;
+           width: 281px;
+           padding-right: 0px;
+           padding-left: 0px;
+           margin-top: -91px;
+        } 
+        h1 {
+            font-size: 38px;
+            position: relative;
+            top: 100px;
+            margin-top: 0px;
+        }
+        #start{
+            position: relative;
+            top: 100px;
+        }
+        body{
+           min-width: 241px;
+
+        }   
+    }
+
+@media only screen and (max-width:3000px) {     
+    body{
+        width: 100px;
+    }
+    .MainContent{
+        width: 600px;
+        height: 500px;
+        margin: 0 auto;
+        margin-top: 120px;
+        padding: 10px 50px 50px 50px;
+        border-radius: 50px;
+    }
+    
+} */
